@@ -5,7 +5,7 @@ type Props = {
   title: string
 }
 
-export default function Home({ title = "Stormplay" }: Props) {
+export default function Home({ title = 'Stormplay' }: Props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,9 +16,7 @@ export default function Home({ title = "Stormplay" }: Props) {
       <main className={styles.main}>
         <h1 className={styles.title}>{title}</h1>
 
-        <p className={styles.description}>
-          Bem vindo ao {title}
-        </p>
+        <p className={styles.description}>Bem vindo ao {title}</p>
 
         <div className={styles.grid}>
           <a href="#" className={styles.card}>
