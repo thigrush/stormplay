@@ -1,27 +1,30 @@
-import { Card } from '../'
+import { useState, useEffect } from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { Category } from '../../types/category.type'
 
-const Caroussel = (category: Category) => (
-  <div className="caroussel">
-    <h3 className="caroussel__title">{category.name}</h3>
-    <ScrollContainer className="scroll-container">
-      <div className="caroussel__list">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-    </ScrollContainer>
-  </div>
-)
+import { Card } from '../'
+import { Category } from '../../types/category.type'
+import { Cards } from '../../types/card.type'
+import { fetchVideo } from '../../services/api.service'
+
+const Caroussel = (category: Category) => {
+  const [items, setItems] = useState<[Cards]>()
+
+  useEffect(() => {
+    fetchVideo(category.id).then((data) => setItems(data.items))
+  }, [category.id])
+
+  return (
+    <div className="caroussel">
+      <h3 className="caroussel__title">{category.name}</h3>
+      <ScrollContainer className="scroll-container">
+        <div className="caroussel__list">
+          {items?.map((item, index) => (
+            <Card key={index} {...item} />
+          ))}
+        </div>
+      </ScrollContainer>
+    </div>
+  )
+}
 
 export default Caroussel

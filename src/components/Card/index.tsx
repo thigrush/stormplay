@@ -1,8 +1,10 @@
-const Card = () => (
+import { Cards } from '../../types/card.type'
+
+const Card = (card: Cards) => (
   <div
     className="card"
     style={{
-      backgroundImage: `url(https://i.ytimg.com/vi/R7klyFU_6xM/mqdefault.jpg)`
+      backgroundImage: `url(${card.snippet?.thumbnails?.high?.url})`
     }}
   >
     <a href="#" className="card__link">

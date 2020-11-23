@@ -4,8 +4,10 @@ import { Caroussel } from '../'
 
 describe('<Caroussel />', () => {
   it('should render the caroussel', () => {
-    render(<Caroussel {...{ name: 'Filmes', id: 1 }} />)
+    render(<Caroussel {...{ name: 'Esportes', id: 17 }} />)
 
-    expect(screen.getByRole('heading', { name: /Filmes/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Esportes/i })
+    ).toBeInTheDocument()
   })
 })
