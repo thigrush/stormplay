@@ -2,8 +2,8 @@ import { Caroussel } from '../'
 
 const categories = [
   {
-    name: 'Filmes',
-    id: 1
+    name: 'Esportes',
+    id: 17
   },
   {
     name: 'Musicas',
