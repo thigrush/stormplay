@@ -3,7 +3,7 @@ import ScrollContainer from 'react-indiana-drag-scroll'
 
 const Caroussel = () => (
   <div className="caroussel">
-    <h3>Categoria</h3>
+    <h3 className="caroussel__title">Categoria</h3>
     <ScrollContainer className="scroll-container">
       <div className="caroussel__list">
         <Card />
