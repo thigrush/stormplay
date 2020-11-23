@@ -17,14 +17,15 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn lint --fix", 
+      "yarn lint --fix",
       "yarn test --findRelatedTests --bail"
     ]
   },
   "dependencies": {
     "next": "10.0.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-indiana-drag-scroll": "^1.8.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.1",
