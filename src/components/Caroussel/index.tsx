@@ -1,9 +1,10 @@
 import { Card } from '../'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { Category } from '../../types/category.type'
 
-const Caroussel = () => (
+const Caroussel = (category: Category) => (
   <div className="caroussel">
-    <h3 className="caroussel__title">Categoria</h3>
+    <h3 className="caroussel__title">{category.name}</h3>
     <ScrollContainer className="scroll-container">
       <div className="caroussel__list">
         <Card />
