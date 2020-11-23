@@ -7,7 +7,9 @@ describe('<Main />', () => {
     render(<Main />)
 
     expect(
-      screen.getByRole('heading', { name: /Storm Play/i })
+      screen.getByRole('heading', {
+        name: /Aproveite a plataforma de vídeos Storm Play Grátis/i
+      })
     ).toBeInTheDocument()
   })
 })

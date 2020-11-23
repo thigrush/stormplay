@@ -7,7 +7,7 @@ describe('<Header />', () => {
     render(<Header />)
 
     expect(
-      screen.getByRole('heading', { name: /StormPlay/i })
+      screen.getByRole('heading', { name: /Storm Play/i })
     ).toBeInTheDocument()
   })
 })
