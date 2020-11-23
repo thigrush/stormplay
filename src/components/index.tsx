@@ -1,3 +1,5 @@
 export { default as Header } from './Header'
 export { default as Footer } from './Footer'
 export { default as Main } from './Main'
+export { default as Caroussel } from './Caroussel'
+export { default as Card } from './Card'
