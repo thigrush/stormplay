@@ -56,9 +56,9 @@ footer a {
 
 .header__title {
   color: #9e9b9c;
+  font-size: 1em;
   margin: 0;
   text-transform: uppercase;
-  font-size: 1em;
 }
 
 .header__description {
@@ -67,12 +67,12 @@ footer a {
 }
 
 .main {
-  padding: 1rem 0 5rem;
-  flex: 1;
+  align-items: center;
   display: flex;
   flex-direction: column;
+  flex: 1;
   justify-content: center;
-  align-items: center;
+  padding: 1rem 0 5rem;
 }
 
 .caroussel {
@@ -87,14 +87,16 @@ footer a {
 }
 
 .caroussel__list {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-wrap: nowrap;
   height: 240px;
   padding: 0 20px;
 }
 
 .card {
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 10px;
   border: 1px solid #eaeaea;
   cursor: pointer;
@@ -105,23 +107,36 @@ footer a {
 }
 
 .card__link {
-  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
   height: 220px;
+  justify-content: flex-end;
+  padding: 10px;
   text-decoration: none;
+  width: 100%;
 }
 
 .card:hover {
-  color: #3ab8e8;
   border-color: #3ab8e8;
+  color: #3ab8e8;
 }
 
-.card__link h3 {
-  margin: 0 0 1rem 0;
+.card__img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.card__title {
   font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 10px black;
 }
 
-.card__link p {
-  margin: 0;
+.card__description {
   font-size: 1.25rem;
   line-height: 1.5;
+  margin: 0;
+  text-shadow: 0 0 10px black;
 }
