@@ -7,8 +7,11 @@ const Header = () => (
       <link rel="icon" href="/favicon.png" />
     </Head>
     <header className="header">
-      <h1 className="header__title">StormPlay</h1>
-      <p className="header__description">Bem vindo</p>
+      <div className="header__img"></div>
+      <div className="header__text">
+        <p className="header__description">Bem vindo ao </p>
+        <h1 className="header__title">StormPlay</h1>
+      </div>
     </header>
   </>
 )
