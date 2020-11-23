@@ -8,8 +8,16 @@ const Card = (card: Cards) => (
     }}
   >
     <a href="#" className="card__link">
-      <h3 className="card__title">VIDEO</h3>
-      <p className="card__description">DESCRIPTION</p>
+      <h4 className="card__title">
+        {card.snippet?.title.length > 20
+          ? card.snippet?.title.slice(0, 20) + '...'
+          : card.snippet?.title}
+      </h4>
+      <p className="card__description">
+        {card.snippet?.description.length > 25
+          ? card.snippet?.description.slice(0, 25) + '...'
+          : card.snippet?.description}
+      </p>
     </a>
   </div>
 )
