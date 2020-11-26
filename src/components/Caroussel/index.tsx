@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
-
 import { Card } from '../'
 import { Category } from '../../types/category.type'
 import { Cards } from '../../types/card.type'
 import { fetchVideo } from '../../services/api.service'
 
-const Caroussel = (category: Category) => {
+export default function Caroussel({ category }: { category: Category }) {
   const [items, setItems] = useState<[Cards]>()
 
   useEffect(() => {
@@ -19,12 +18,10 @@ const Caroussel = (category: Category) => {
       <ScrollContainer className="scroll-container">
         <div className="caroussel__list">
           {items?.map((item, index) => (
-            <Card key={index} {...item} />
+            <Card key={index} card={item} />
           ))}
         </div>
       </ScrollContainer>
     </div>
   )
 }
-
-export default Caroussel
