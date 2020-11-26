@@ -90,7 +90,7 @@ footer a {
   align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  height: 240px;
+  height: 280px;
   padding: 0 20px;
 }
 
@@ -98,19 +98,19 @@ footer a {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
-  border: 1px solid #eaeaea;
   cursor: pointer;
-  height: 220px;
+  height: 270px;
   margin: 0 15px;
-  min-width: 300px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  min-width: 360px;
 }
 
 .card__link {
+  background: rgba(0,0,0,0.85);
+  border-radius: 10px;
   color: #fff;
   display: flex;
   flex-direction: column;
-  height: 220px;
+  height: 270px;
   justify-content: flex-end;
   padding: 10px;
   text-decoration: none;
@@ -130,13 +130,12 @@ footer a {
 
 .card__title {
   font-size: 1.5rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
   text-shadow: 0 0 10px black;
 }
 
 .card__description {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1rem;
   margin: 0;
   text-shadow: 0 0 10px black;
 }
