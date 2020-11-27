@@ -7,7 +7,6 @@ import {
 } from 'react-icons/ai'
 
 import { fetchVideo } from '../../services/api.service'
-import { startControl } from '../../services/controller.service'
 import { Cards } from '../../types/card.type'
 
 export default function Video({ id }: { id: string | string[] | undefined }) {
@@ -15,7 +14,6 @@ export default function Video({ id }: { id: string | string[] | undefined }) {
 
   useEffect(() => {
     fetchVideo(id, 'video').then((data) => setVideo(data.items))
-    startControl('button')
   }, [id])
 
   const playActive = () => {
@@ -46,19 +44,24 @@ export default function Video({ id }: { id: string | string[] | undefined }) {
             </p>
           )}
           <div className="video__buttons">
-            <button onClick={() => playActive()}>
+            <button className="video__button" onClick={() => playActive()}>
               <AiFillPlayCircle />
               ASSISTIR
             </button>
-            <button onClick={() => alert('Video adicionado aos favoritos')}>
+            <button
+              className="video__button"
+              onClick={() => alert('Video adicionado aos favoritos')}
+            >
               <AiFillHeart /> FAVORITAR
             </button>
           </div>
-          <Link href="/">
-            <button>
-              <AiOutlineRollback /> VOLTAR
-            </button>
-          </Link>
+          <div className="video__buttons">
+            <Link href="/">
+              <button className="video__button">
+                <AiOutlineRollback /> VOLTAR
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </main>

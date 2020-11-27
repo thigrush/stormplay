@@ -1,12 +1,6 @@
-import { useEffect } from 'react'
 import { Caroussel } from '../'
-import { startControl } from '../../services/controller.service'
 
 export default function Main() {
-  useEffect(() => {
-    startControl('.card')
-  }, [])
-
   const categories = [
     {
       name: 'Esportes',

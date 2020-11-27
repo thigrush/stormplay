@@ -1,4 +1,4 @@
-const selectElement = (query: string) => {
+export const startControl = (query: string) => {
   setTimeout(
     () => {
       const item = document.querySelectorAll(query)
@@ -10,27 +10,38 @@ const selectElement = (query: string) => {
   )
 }
 
-const moveRight = (query: string) => {
-  const items = document.querySelectorAll(query)
+const moveRight = () => {
   const selected = document.querySelector('.selected')
 
-  console.log(items)
-  console.log(selected)
-
   if (selected) {
+    const items = document.querySelectorAll(`.${selected.classList[0]}`)
+
+    console.log(items)
     let index = Array.from(items).indexOf(selected)
     if (items.length - 2 >= index) {
       items[++index].classList.add('selected')
     } else {
-      selected.classList.remove('selected')
-      items[0].classList.add('selected')
-      window.scrollTo(0, 1000)
+      items[0]?.classList.add('selected')
     }
     selected.classList.remove('selected')
   }
 }
 
-// export const moveLeft = () => {}
+const moveLeft = () => {
+  const selected = document.querySelector('.selected')
+
+  if (selected) {
+    const items = document.querySelectorAll(`.${selected.classList[0]}`)
+
+    let index = Array.from(items).indexOf(selected)
+    if (index > 0) {
+      items[--index].classList.add('selected')
+    } else {
+      items[items.length - 1]?.classList.add('selected')
+    }
+    selected.classList.remove('selected')
+  }
+}
 
 // export const moveDown = () => {}
 
@@ -38,26 +49,21 @@ const moveRight = (query: string) => {
 
 // export const enterSelected = () => {}
 
-export const startControl = (query: string) => {
-  document.addEventListener('keydown', function (event) {
-    switch (event.key) {
-      case 'ArrowRight':
-      case 'Right':
-        console.log('right')
-        moveRight(query)
-        break
-      case 'ArrowLeft':
-        console.log('left')
-        break
-      case 'ArrowDown':
-        console.log('down')
-        break
-      case 'ArrowUp':
-        console.log('up')
-        break
-    }
-
-    console.log(event.key)
-  })
-  selectElement(query)
+export const activeControl = (event: { key: string }) => {
+  switch (event.key) {
+    case 'ArrowRight':
+    case 'Right':
+      moveRight()
+      break
+    case 'ArrowLeft':
+    case 'Left':
+      moveLeft()
+      break
+    case 'ArrowDown':
+      console.log('down')
+      break
+    case 'ArrowUp':
+      console.log('up')
+      break
+  }
 }
