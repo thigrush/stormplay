@@ -9,6 +9,13 @@ export default function Video({ id }: { id: string | string[] | undefined }) {
     fetchVideo(id, 'video').then((data) => setVideo(data.items))
   }, [id])
 
+  const playActive = () => {
+    const video_iframe = document.querySelector('iframe')
+    if (video_iframe != null) {
+      video_iframe.src += '?autoplay=1'
+    }
+  }
+
   return (
     <main className="main">
       <div className="video__container">
@@ -24,11 +31,12 @@ export default function Video({ id }: { id: string | string[] | undefined }) {
           <h2>{infoVideo?.[0].snippet.title}</h2>
           {infoVideo && (
             <p>
-              {infoVideo?.[0].snippet.description.length > 500
-                ? infoVideo?.[0].snippet.description.slice(0, 500)
+              {infoVideo?.[0].snippet.description.length > 400
+                ? infoVideo?.[0].snippet.description.slice(0, 400) + '...'
                 : infoVideo?.[0].snippet.description}
             </p>
           )}
+          <button onClick={() => playActive()}>ASSISTIR</button>
         </div>
       </div>
     </main>

@@ -13,7 +13,7 @@ describe('<Card />', () => {
     expect(screen.getAllByRole('heading', { level: 4 }).length === 15)
 
     expect(
-      screen.getByRole('heading', { name: /Biggest/i })
+      screen.getByRole('heading', { name: /Minecraft/i })
     ).toBeInTheDocument()
   })
 })

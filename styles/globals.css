@@ -38,6 +38,18 @@ footer a {
   color: #000;
 }
 
+button {
+  background: #222831;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  height: 8vh;
+  margin-top: 50px;
+  padding: 10px 15px;
+  width: 20vw;
+}
+
 .header {
   align-items: center;
   background: #222831;
@@ -53,6 +65,7 @@ footer a {
   background: url('https://stormgroup.com.br/static/stormgroup.svg') no-repeat center;
   height: 50px;
   width: 150px;
+  background-repeat: no-repeat;
 }
 
 .header__text {
@@ -96,7 +109,7 @@ footer a {
   align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  height: 42vh;
+  height: 300px;
   padding: 0 20px;
 }
 
@@ -105,9 +118,9 @@ footer a {
   background-size: cover;
   border-radius: 10px;
   cursor: pointer;
-  height: 40vh;
+  height: 280px;
   margin: 0 15px;
-  min-width: 30vw;
+  min-width: 380px;
 }
 
 .card__content {
@@ -116,7 +129,7 @@ footer a {
   color: #fff;
   display: flex;
   flex-direction: column;
-  height: 40vh;
+  height: 280px;
   justify-content: flex-end;
   padding: 35px 15px;
   text-decoration: none;
@@ -162,11 +175,22 @@ footer a {
 .video__content {
   height: 60vh;
   padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.video__content h2 {
+  margin: 10px auto;
 }
 
 @media (min-width: 1900px) {
-  h2, h3, p, a {
+  h2, h3, p {
     font-size: 2rem;
+  }
+  a {
+    font-size: 1.5rem;
   }
   .header__img {
     height: 150px;
