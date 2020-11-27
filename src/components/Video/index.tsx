@@ -1,4 +1,11 @@
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import {
+  AiFillPlayCircle,
+  AiOutlineRollback,
+  AiFillHeart
+} from 'react-icons/ai'
+
 import { fetchVideo } from '../../services/api.service'
 import { Cards } from '../../types/card.type'
 
@@ -36,7 +43,20 @@ export default function Video({ id }: { id: string | string[] | undefined }) {
                 : infoVideo?.[0].snippet.description}
             </p>
           )}
-          <button onClick={() => playActive()}>ASSISTIR</button>
+          <div className="video__buttons">
+            <button onClick={() => playActive()}>
+              <AiFillPlayCircle />
+              ASSISTIR
+            </button>
+            <button onClick={() => alert('Video adicionado aos favoritos')}>
+              <AiFillHeart /> FAVORITAR
+            </button>
+          </div>
+          <Link href="/">
+            <button>
+              <AiOutlineRollback /> VOLTAR
+            </button>
+          </Link>
         </div>
       </div>
     </main>
