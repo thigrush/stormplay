@@ -4,7 +4,11 @@ import { Card } from '../'
 
 describe('<Card />', () => {
   it('should render the card', async () => {
-    render(<Card card={await fetchVideo(20).then((data) => data.items[0])} />)
+    render(
+      <Card
+        card={await fetchVideo('20', 'search').then((data) => data.items[0])}
+      />
+    )
 
     expect(screen.getAllByRole('heading', { level: 4 }).length === 15)
 

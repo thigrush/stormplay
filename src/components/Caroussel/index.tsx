@@ -9,7 +9,7 @@ export default function Caroussel({ category }: { category: Category }) {
   const [items, setItems] = useState<[Cards]>()
 
   useEffect(() => {
-    fetchVideo(category.id).then((data) => setItems(data.items))
+    fetchVideo(category.id, 'search').then((data) => setItems(data.items))
   }, [category.id])
 
   return (

@@ -4,15 +4,15 @@ export default function Main() {
   const categories = [
     {
       name: 'Esportes',
-      id: 17
+      id: '17'
     },
     {
       name: 'Musicas',
-      id: 10
+      id: '10'
     },
     {
       name: 'Jogos',
-      id: 20
+      id: '20'
     }
   ]
 

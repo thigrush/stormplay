@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Card({ card }: { card: Cards }) {
   return (
-    <Link href="/abc">
+    <Link href="/video">
       <div
         className="card"
         style={{
