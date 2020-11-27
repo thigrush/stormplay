@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router'
-import { Header, Footer } from '../components'
+import { Header, Footer, Video } from '../components'
 
-const Video = () => {
+const VideoPage = () => {
   const router = useRouter()
   const { id } = router.query
 
   return (
     <>
       <Header />
-      <p>Video: {id}</p>
+      <Video id={id} />
       <Footer />
     </>
   )
 }
 
-export default Video
+export default VideoPage

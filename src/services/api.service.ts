@@ -1,6 +1,9 @@
 import fetch from 'isomorphic-unfetch'
 
-export const fetchVideo = async (id: string, get: string) => {
+export const fetchVideo = async (
+  id: string | string[] | undefined,
+  get: string
+) => {
   const url_api = 'https://youtube.googleapis.com/youtube/v3/videos?key='
   const keyAPI = 'AIzaSyBJnKIwnXp1su2FL1A2lTnvzbvu9vFe6rI'
 

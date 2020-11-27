@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { fetchVideo } from '../../services/api.service'
 
-export default function Video({ id }: { id: string }) {
+export default function Video({ id }: { id: string | string[] | undefined }) {
   const [infoVideo, setVideo] = useState()
 
   useEffect(() => {
