@@ -5,7 +5,7 @@ export const fetchVideo = async (
   get: string
 ) => {
   const url_api = 'https://youtube.googleapis.com/youtube/v3/videos?key='
-  const keyAPI = 'AIzaSyBJnKIwnXp1su2FL1A2lTnvzbvu9vFe6rI'
+  const keyAPI = 'AIzaSyDZ0t-VwbGh_PI8GgAOzXqSQ4vIwSF1AsI'
 
   const searchParam = '&chart=mostPopular&maxResults=15&videoCategoryId='
   const videoParam = '&id='
