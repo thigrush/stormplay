@@ -104,7 +104,7 @@ footer a {
   min-width: 360px;
 }
 
-.card__link {
+.card__content {
   background: rgba(0,0,0,0.85);
   border-radius: 10px;
   color: #fff;
@@ -112,7 +112,7 @@ footer a {
   flex-direction: column;
   height: 270px;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 35px 15px;
   text-decoration: none;
   width: 100%;
 }
