@@ -7,6 +7,7 @@ import {
 } from 'react-icons/ai'
 
 import { fetchVideo } from '../../services/api.service'
+import { startControl } from '../../services/controller.service'
 import { Cards } from '../../types/card.type'
 
 export default function Video({ id }: { id: string | string[] | undefined }) {
@@ -14,6 +15,7 @@ export default function Video({ id }: { id: string | string[] | undefined }) {
 
   useEffect(() => {
     fetchVideo(id, 'video').then((data) => setVideo(data.items))
+    startControl('button')
   }, [id])
 
   const playActive = () => {

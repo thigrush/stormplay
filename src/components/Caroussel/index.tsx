@@ -4,14 +4,11 @@ import { Card } from '../'
 import { Category } from '../../types/category.type'
 import { Cards } from '../../types/card.type'
 import { fetchVideo } from '../../services/api.service'
-import { selectElement } from '../../services/controller.service'
-
 export default function Caroussel({ category }: { category: Category }) {
   const [items, setItems] = useState<[Cards]>()
 
   useEffect(() => {
     fetchVideo(category.id, 'search').then((data) => setItems(data.items))
-    selectElement('.card')
   }, [category.id])
 
   return (
