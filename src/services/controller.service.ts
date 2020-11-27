@@ -11,10 +11,22 @@ const selectElement = (query: string) => {
 }
 
 const moveRight = (query: string) => {
+  const items = document.querySelectorAll(query)
   const selected = document.querySelector('.selected')
+
+  console.log(items)
+  console.log(selected)
+
   if (selected) {
+    let index = Array.from(items).indexOf(selected)
+    if (items.length - 2 >= index) {
+      items[++index].classList.add('selected')
+    } else {
+      selected.classList.remove('selected')
+      items[0].classList.add('selected')
+      window.scrollTo(0, 1000)
+    }
     selected.classList.remove('selected')
-    console.log(document.querySelector(query))
   }
 }
 
@@ -30,6 +42,7 @@ export const startControl = (query: string) => {
   document.addEventListener('keydown', function (event) {
     switch (event.key) {
       case 'ArrowRight':
+      case 'Right':
         console.log('right')
         moveRight(query)
         break
@@ -43,6 +56,8 @@ export const startControl = (query: string) => {
         console.log('up')
         break
     }
+
+    console.log(event.key)
   })
   selectElement(query)
 }
