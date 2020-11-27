@@ -181,17 +181,17 @@ button {
   align-items: flex-start;
   display: flex;
   justify-content: space-around;
-  margin-top: 70px;
+  margin: 70px 0;
   padding: 0 50px;
 }
 
 .video__player {
-  height: 60vh;
   padding: 0 30px;
 }
 
 .video__content {
-  height: 60vh;
+  height: 60%;
+  width: 40%;
   padding: 0 30px;
   display: flex;
   flex-direction: column;
@@ -205,6 +205,10 @@ button {
 
 .video__buttons {
   display: flex;
+}
+
+.selected {
+  border: 5px solid #3ab8e8;
 }
 
 @media (min-width: 1900px) {

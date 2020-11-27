@@ -1,5 +1,5 @@
-import { Cards } from '../../types/card.type'
 import Link from 'next/link'
+import { Cards } from '../../types/card.type'
 
 export default function Card({ card }: { card: Cards }) {
   return (
