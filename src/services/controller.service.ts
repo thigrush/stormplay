@@ -1,9 +1,8 @@
 export const startControl = (query: string) => {
   const item = document.querySelectorAll(query)
   if (item.length) {
-    !document.querySelector('.selected')
-      ? item[0]?.classList.add('selected')
-      : null
+    !document.querySelector('.selected') && item[0]?.classList.add('selected')
+    query === '.card' && scrollSelected()
   } else {
     setTimeout(() => {
       startControl(query)
@@ -28,6 +27,7 @@ const moveHorizontal = (direction: string) => {
     }
 
     selected.classList.remove('selected')
+    selected.classList[0] === 'card' && scrollSelected()
   }
 }
 
@@ -35,12 +35,10 @@ const moveVertical = (direction: string) => {
   const selected = document.querySelector('.selected')
   if (selected) {
     const parentSelected = <HTMLScriptElement>selected.parentElement
-    const items = parentSelected.querySelectorAll(`.${selected.classList[0]}`)
     const itemsParent = document.querySelectorAll(
       `.${selected.parentElement?.classList[0]}`
     )
     const indexParent = Array.from(itemsParent).indexOf(parentSelected)
-    const index = Array.from(items).indexOf(selected)
 
     let itemParent = itemsParent[
       direction === 'down' ? indexParent + 1 : indexParent - 1
@@ -49,39 +47,46 @@ const moveVertical = (direction: string) => {
     if (
       direction === 'down' ? indexParent + 1 < itemsParent.length : itemParent
     ) {
-      if (itemParent[index]) {
-        itemParent[index].classList.add('selected')
-      } else {
-        itemParent[itemParent?.length - 1]?.classList.add('selected')
-      }
+      itemParent[0].classList.add('selected')
     } else {
       if (direction === 'down') {
         itemParent = itemsParent[0]?.querySelectorAll(
           `.${selected.classList[0]}`
         )
-        itemParent[index]?.classList.add('selected')
+        itemParent[0]?.classList.add('selected')
       } else if (direction === 'up') {
         itemParent = itemsParent[itemsParent?.length - 1]?.querySelectorAll(
           `.${selected.classList[0]}`
         )
-        itemParent[index]
-          ? itemParent[index]?.classList.add('selected')
-          : itemParent[0]?.classList.add('selected')
+        itemParent[0]?.classList.add('selected')
       }
     }
     selected.classList.remove('selected')
+    selected.classList[0] === 'card' && scrollSelected()
   }
 }
 
 const enterSelected = () => {
   const selected = <HTMLScriptElement>document.querySelector('.selected')
-  selected ? selected.click() : null
+  selected && selected.click()
 }
 
-// const scrollItem = () => {
-//   document.querySelector('html').scrollTop = 200
-//   document.querySelector('.scroll-container').scroll(400, 0)
-// }
+const scrollSelected = () => {
+  const selected = <HTMLScriptElement>document.querySelector('.selected')
+  const parentSelected = <HTMLScriptElement>selected.parentElement
+  const html = document.querySelector('html')
+
+  html &&
+    (html.scrollTop = selected ? selected.offsetTop - selected.offsetHeight : 0)
+
+  const caroussels = document.querySelectorAll('.scroll-container')
+  const itemsParent = document.querySelectorAll(
+    `.${selected.parentElement?.classList[0]}`
+  )
+  const indexParent = Array.from(itemsParent).indexOf(parentSelected)
+  const caroussel = <HTMLScriptElement>caroussels[indexParent]
+  caroussel ? (caroussel.scrollLeft = selected.offsetLeft - 50) : 0
+}
 
 export const activeControl = (event: { key: string }) => {
   switch (event.key) {
@@ -102,7 +107,6 @@ export const activeControl = (event: { key: string }) => {
       moveVertical('up')
       break
     case 'Enter':
-      // scrollItem()
       enterSelected()
       break
   }

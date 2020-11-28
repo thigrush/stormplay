@@ -11,6 +11,8 @@ body {
   font-family: Arial;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 a {
@@ -19,7 +21,7 @@ a {
 
 h2 {
   color: #555555;
-  margin: 10px 20px 50px;
+  margin: 50px 20px 10px;
   text-align: center;
 }
 
@@ -210,6 +212,10 @@ button {
 
 .selected {
   border: 5px solid #3ab8e8;
+}
+
+.scroll-container {
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 1900px) {
