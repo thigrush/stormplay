@@ -66,6 +66,7 @@ button {
   flex-direction: column;
   height: 15vh;
   justify-content: center;
+  position: fixed;
   width: 100%;
 }
 
@@ -99,7 +100,7 @@ button {
   flex-direction: column;
   flex: 1;
   justify-content: center;
-  padding: 1rem 0 5rem;
+  padding: 8rem 0;
 }
 
 .caroussel {

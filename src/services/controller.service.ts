@@ -1,13 +1,14 @@
 export const startControl = (query: string) => {
-  setTimeout(
-    () => {
-      const item = document.querySelectorAll(query)
-      if (!document.querySelector('.selected')) {
-        item[0]?.classList.add('selected')
-      }
-    },
-    query === '.card' ? 2000 : 0
-  )
+  const item = document.querySelectorAll(query)
+  if (item.length) {
+    !document.querySelector('.selected')
+      ? item[0]?.classList.add('selected')
+      : null
+  } else {
+    setTimeout(() => {
+      startControl(query)
+    }, 1000)
+  }
 }
 
 const moveHorizontal = (direction: string) => {

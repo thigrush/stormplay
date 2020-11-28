@@ -18,7 +18,7 @@ export default function Main() {
 
   return (
     <main className="main">
-      <h2>Aproveite a plataforma de vídeos Storm Play Grátis</h2>
+      <h2>Aproveite a melhor plataforma de vídeos grátis!</h2>
       {categories.map((category, index) => (
         <Caroussel key={index} category={category} />
       ))}
