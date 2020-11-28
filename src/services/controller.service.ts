@@ -12,11 +12,8 @@ export const startControl = (query: string) => {
 
 const moveRight = () => {
   const selected = document.querySelector('.selected')
-
   if (selected) {
     const items = document.querySelectorAll(`.${selected.classList[0]}`)
-
-    console.log(items)
     let index = Array.from(items).indexOf(selected)
     if (items.length - 2 >= index) {
       items[++index].classList.add('selected')
@@ -29,10 +26,8 @@ const moveRight = () => {
 
 const moveLeft = () => {
   const selected = document.querySelector('.selected')
-
   if (selected) {
     const items = document.querySelectorAll(`.${selected.classList[0]}`)
-
     let index = Array.from(items).indexOf(selected)
     if (index > 0) {
       items[--index].classList.add('selected')
@@ -43,11 +38,35 @@ const moveLeft = () => {
   }
 }
 
-// export const moveDown = () => {}
+const moveDown = () => {
+  const selected = document.querySelector('.selected')
 
-// export const moveUp = () => {}
+  if (selected) {
+    const parentSelected = <HTMLScriptElement>selected.parentElement
+    const items = parentSelected.querySelectorAll(`.${selected.classList[0]}`)
+    const itemsParent = document.querySelectorAll(
+      `.${selected.parentElement?.classList[0]}`
+    )
+    const indexParent = Array.from(itemsParent).indexOf(parentSelected)
+    const index = Array.from(items).indexOf(selected)
 
-// export const enterSelected = () => {}
+    let itemParent = itemsParent[indexParent + 1]?.querySelectorAll(
+      `.${selected.classList[0]}`
+    )
+    if (indexParent + 1 < itemsParent.length) {
+      console.log('index', index)
+      itemParent[index]?.classList.add('selected')
+    } else {
+      itemParent = itemsParent[0]?.querySelectorAll(`.${selected.classList[0]}`)
+      itemParent[index]?.classList.add('selected')
+    }
+    selected.classList.remove('selected')
+  }
+}
+
+// const moveUp = () => {}
+
+// const enterSelected = () => {}
 
 export const activeControl = (event: { key: string }) => {
   switch (event.key) {
@@ -60,7 +79,8 @@ export const activeControl = (event: { key: string }) => {
       moveLeft()
       break
     case 'ArrowDown':
-      console.log('down')
+    case 'Down':
+      moveDown()
       break
     case 'ArrowUp':
       console.log('up')
