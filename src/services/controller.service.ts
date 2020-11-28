@@ -72,7 +72,15 @@ const moveVertical = (direction: string) => {
   }
 }
 
-// const enterSelected = () => {}
+const enterSelected = () => {
+  const selected = <HTMLScriptElement>document.querySelector('.selected')
+  selected ? selected.click() : null
+}
+
+// const scrollItem = () => {
+//   document.querySelector('html').scrollTop = 200
+//   document.querySelector('.scroll-container').scroll(400, 0)
+// }
 
 export const activeControl = (event: { key: string }) => {
   switch (event.key) {
@@ -93,8 +101,8 @@ export const activeControl = (event: { key: string }) => {
       moveVertical('up')
       break
     case 'Enter':
-      console.log('enter teste')
+      // scrollItem()
+      enterSelected()
       break
   }
-  console.log(event.key)
 }
